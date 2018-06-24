@@ -12,3 +12,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+Rails.application.config.assets.precompile += %w( jquery.mobile-1.4.5.min.css )
+Rails.application.config.assets.precompile += %w( common.css )
+Rails.application.config.assets.precompile += %w( jquery-1.11.1.min.js )
+Rails.application.config.assets.precompile += %w( jquery.mobile-1.4.5.min.js )
+Rails.application.config.assets.precompile += %w( jquery.mobile-1.4.5.min.map )
+Rails.application.config.assets.precompile += %w( common.js )

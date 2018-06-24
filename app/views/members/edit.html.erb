@@ -1,0 +1,65 @@
+<div id="page" data-role="page">
+
+  <!-- header -->
+  <div data-role="header" data-position="fixed">
+    <h1><%= @member.name %></h1>
+  </div>
+  <!-- /header -->
+
+  <!-- content -->
+  <div data-role="content">
+
+    <% if params[:kind] == 'game' then %>
+      <div style="text-align:center">
+        <h2>Game: <%= @member.game.name %></h2>
+      </div>
+
+      <%= form_for '/members/${@member.id}/score' do |f| %>
+        <div style="text-align:center;">Please select a game</div>
+
+        <input type="radio" name="game_id" id="game_id_1" value="1">
+        <label for="game_id_1">Darts × unlimited</label>
+        <input type="radio" name="game_id" id="game_id_2" value="2">
+        <label for="game_id_2">Billiards × 2</label>
+        <input type="radio" name="game_id" id="game_id_3" value="3">
+        <label for="game_id_3">Golf × 1</label>
+        <input type="radio" name="game_id" id="game_id_9" value="9">
+        <label for="game_id_9">None</label>
+
+        <div style="text-align:center;margin-top:50px;">
+          <button class="ui-shadow ui-btn ui-corner-all" data-ajax=”false”>Update</button>
+          <a href="/teams/members/<%= @member.name %>" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow">Return</a>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if params[:kind] == 'score' then %>
+      <div style="text-align:center">
+        <h2>Score: <%= @member.score %></h2>
+        <h3>Game: <%= @member.game.name %></h3>
+      </div>
+
+      <%= form_for '/members/${@member.id}/score' do |f| %>
+        <div class="ui-grid-b">
+            <div class="ui-block-a"><div class="ui-bar ui-bar-c"></div></div>
+            <div class="ui-block-b"><div class="ui-bar ui-bar-c">
+              <input type="text" id="score" name="score" value="<%= @member.score %>" style="text-align:right" />
+            </div></div>
+            <div class="ui-block-c"><div class="ui-bar ui-bar-c""></div></div>
+        </div>
+
+        <div style="text-align:center;">
+          <p>Darts: xxxxxxxxxxxxxxxxxxxxxx</p>
+          <p>Billiards: xxxxxxxxxxxxxxxxxxxx</p>
+          <p>Golf: xxxxxxxxxxxxxxxxxxx</p>
+        </div>
+
+        <div style="text-align:center;margin-top:40px;">
+          <button class="ui-shadow ui-btn ui-corner-all" data-ajax=”false”>Update</button>
+          <a href="/teams/members/<%= @member.name %>" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow">Return</a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- /content -->
+</div>

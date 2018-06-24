@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :login, only: [:index]
+  post '/login', to: 'members#index'
+  get '/teams/members/:name', to: 'members#index'
+  post '/teams/members', to: 'members#index'
+  get '/members/:id/:kind', to: 'members#edit'
+  post '/members/:id/game', to: 'members#update_game'
+  post '/members/:id/score', to: 'members#update_score'
 end
