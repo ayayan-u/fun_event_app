@@ -22,13 +22,13 @@
          <% @team.members.each do |member| %>
          <tr>
            <td style="text-align:center;width:30%;">
-             <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="width:80%" onClick="location.href='/members/<%= member.id %>/game'"><%= member.game.name %></a>
+             <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="width:60%" onClick="location.href='/members/<%= member.id %>/game'"><%= member.game.name %></a>
            </td>
            <td style="text-align:center">
              <h3><%= member.name %></h3>
            </td>
            <td style="text-align:center;width:30%;">
-             <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="width:80%" onClick="location.href='/members/<%= member.id %>/score'"><%= member.score %></a>
+             <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="width:60%" onClick="location.href='/members/<%= member.id %>/score'"><%= member.score %></a>
            </td>
          </tr>
          <% end %>
