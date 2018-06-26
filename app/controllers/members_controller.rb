@@ -28,14 +28,14 @@ class MembersController < ApplicationController
   private
 
   def calc_total_score
-    sql = "select count(id) as num, sum(score) as total from members where team_id = #{@member.team_id} and game_id = 1;"
+    sql = "select count(id) as num, coalesce(sum(score),0) as total from members where team_id = #{@member.team_id} and game_id = 1;"
     darts_total = ActiveRecord::Base.connection.select_all(sql).to_hash
     darts_avg = darts_total[0]['total'] / darts_total[0]['num']
 
-    sql = "select sum(score) as total from members where team_id = #{@member.team_id} and game_id = 3;"
+    sql = "select coalesce(sum(score),0) as total from members where team_id = #{@member.team_id} and game_id = 3;"
     billiards_total = ActiveRecord::Base.connection.select_all(sql).to_hash
 
-    sql = "select sum(score) as total from members where team_id = #{@member.team_id} and game_id = 4;"
+    sql = "select coalesce(sum(score),0) as total from members where team_id = #{@member.team_id} and game_id = 4;"
     golf_total = ActiveRecord::Base.connection.select_all(sql).to_hash
 
     @team_score = darts_avg + billiards_total[0]['total'] + golf_total[0]['total']
