@@ -14,13 +14,20 @@
 
         <fieldset data-role="controlgroup">
           <input type="radio" name="game_id" id="game_id_1" value="1" <% if @member.game_id == 1 then %>checked<% end %> />
-          <label for="game_id_1">Darts (Owner)</label>
+          <label for="game_id_1">Darts* (Owner)</label>
+
           <input type="radio" name="game_id" id="game_id_2" value="2" <% if @member.game_id == 2 then %>checked<% end %> />
           <label for="game_id_2">Darts (Member)</label>
+
           <input type="radio" name="game_id" id="game_id_3" value="3" <% if @member.game_id == 3 then %>checked<% end %> />
-          <label for="game_id_3">Billiards</label>
-          <input type="radio" name="game_id" id="game_id_4" value="4" <% if @member.game_id == 4 then %>checked<% end %> />
-          <label for="game_id_4">Golf</label>
+          <label for="game_id_3">Billiards* (Owner)</label>
+
+          <input type="radio" name="game_id" id="game_id_4" value="4" <% if @member.game_id == 4 then %>checked<% end %> />
+          <label for="game_id_4">Billiards (Member)</label>
+
+          <input type="radio" name="game_id" id="game_id_5" value="5" <% if @member.game_id == 5 then %>checked<% end %> />
+          <label for="game_id_5">Golf</label>
+
           <input type="radio" name="game_id" id="game_id_9" value="9" <% if @member.game_id == 9 then %>checked<% end %> />
           <label for="game_id_9">None</label>
         </fieldset>
@@ -53,6 +60,7 @@
           <p>■ Darts*</p>
           <p>Ownerがペアの合計得点を登録してください。</p>
           <p>■ Billiards</p>
+          <p>Ownerがペアの合計得点を登録してください。</p>
           <p>1球 × 50点の計算結果を登録してください。</p>
           <p>■ Golf</p>
           <p>飛距離を登録してください。</p>

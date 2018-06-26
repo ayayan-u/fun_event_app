@@ -30,8 +30,12 @@ class MembersController < ApplicationController
   def calc_total_score
     sql = "select count(id) as num, coalesce(sum(score),0) as total from members where team_id = #{@member.team_id} and game_id = 1;"
     darts_total = ActiveRecord::Base.connection.select_all(sql).to_hash
-    darts_avg = darts_total[0]['total'] / darts_total[0]['num']
-
+    if darts_total[0]['num'] == 0 then
+      darts_avg = 0
+    else
+      darts_avg = darts_total[0]['total'] / darts_total[0]['num']
+    end
+    
     sql = "select coalesce(sum(score),0) as total from members where team_id = #{@member.team_id} and game_id = 3;"
     billiards_total = ActiveRecord::Base.connection.select_all(sql).to_hash
 

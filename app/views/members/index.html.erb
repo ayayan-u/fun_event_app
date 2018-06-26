@@ -22,7 +22,7 @@
            <td style="text-align:center">
              <h3><%= member.name %></h3>
            </td>
-           <% if member.game_id == 9 or member.game_id == 2 %>
+           <% if member.game_id == 9 or member.game_id == 2 or member.game_id == 4 %>
            <td style="text-align:center;width:30%;">
              <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled" style="width:60%" onClick="location.href='/members/<%= member.id %>/score'"><%= member.score %></a>
            </td>
