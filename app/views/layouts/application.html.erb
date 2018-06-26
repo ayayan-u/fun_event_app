@@ -16,6 +16,14 @@
     <%= javascript_include_tag 'common', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#score").parent().unwrap();
+        $("#name").parent().unwrap();
+        $.mobile.pageLoadErrorMessage = "ページが表示できません";
+        $.mobile.pageLoadErrorMessageTheme = "b";
+      });
+    </script>
     <%= yield %>
   </body>
 </html>

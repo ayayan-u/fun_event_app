@@ -1,14 +1,9 @@
 <div id="page" data-role="page">
 
-  <!-- header -->
-  <div data-role="header" data-position="fixed">
-    <h1><%= @team.name %></h1>
-  </div>
-  <!-- /header -->
-
   <!-- content -->
   <div role="main" class="ui-content">
-    <h2 style="text-align:center">Team Score: <%= @team_score %></h2>
+    <h2 style="text-align:center"><%= @team.name %></h2>
+    <h3 style="text-align:center">Total score: <%= @team_score %></h3>
 
     <table data-role="table" id="table-custom-2" data-mode="false" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-popup-theme="a">
        <thead>
@@ -27,18 +22,21 @@
            <td style="text-align:center">
              <h3><%= member.name %></h3>
            </td>
+           <% if member.game_id == 9 or member.game_id == 2 %>
+           <td style="text-align:center;width:30%;">
+             <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled" style="width:60%" onClick="location.href='/members/<%= member.id %>/score'"><%= member.score %></a>
+           </td>
+           <% else %>
            <td style="text-align:center;width:30%;">
              <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="width:60%" onClick="location.href='/members/<%= member.id %>/score'"><%= member.score %></a>
            </td>
+           <% end %>
+
          </tr>
          <% end %>
        </tbody>
      </table>
   </div>
   <!-- /content -->
-
-  <!-- footer -->
-  <div data-role="footer" data-position="fixed"><h4>&copy; Summer Event 2018</h4></div>
-  <!-- /footer -->
 
 </div>
