@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :login, only: [:index]
-  post '/login', to: 'members#index'
+  #resources :login, only: [:index]
+  get '', to: 'login#index'
+  get '/', to: 'login#index'
+  post '/', to: 'members#index'
   get '/teams/members/:name', to: 'members#index'
   post '/teams/members', to: 'members#index'
   get '/members/:id/:kind', to: 'members#edit'

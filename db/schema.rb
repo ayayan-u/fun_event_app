@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2018_06_17_165818) do
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "team_id", null: false
-    t.integer "game_id"
-    t.integer "score"
+    t.integer "game_id", default: 9, null: false
+    t.integer "score", default: 0, null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }
