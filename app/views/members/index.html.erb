@@ -1,0 +1,42 @@
+<div id="page" data-role="page">
+
+  <!-- content -->
+  <div role="main" class="ui-content">
+    <h2 style="text-align:center"><%= @team.name %></h2>
+    <h3 style="text-align:center">Total score: <%= @team_score %></h3>
+
+    <table data-role="table" id="table-custom-2" data-mode="false" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-popup-theme="a">
+       <thead>
+         <tr class="ui-bar-d">
+           <th style="text-align:center">Game</th>
+           <th style="text-align:center">Name</th>
+           <th style="text-align:center">Score</th>
+         </tr>
+       </thead>
+       <tbody>
+         <% @team.members.each do |member| %>
+         <tr>
+           <td style="text-align:center;width:40%;">
+             <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="width:60%" onClick="location.href='/members/<%= member.id %>/game'"><%= member.game.name %></a>
+           </td>
+           <td style="text-align:center">
+             <h3><%= member.name %></h3>
+           </td>
+           <% if member.game_id == 9 or member.game_id == 2 or member.game_id == 4 %>
+           <td style="text-align:center;width:30%;">
+             <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-state-disabled" style="width:60%" onClick="location.href='/members/<%= member.id %>/score'"><%= member.score %></a>
+           </td>
+           <% else %>
+           <td style="text-align:center;width:30%;">
+             <a href="#" rel=”external” data-ajax=”false” class="ui-btn ui-corner-all ui-shadow ui-btn-inline" style="width:60%" onClick="location.href='/members/<%= member.id %>/score'"><%= member.score %></a>
+           </td>
+           <% end %>
+
+         </tr>
+         <% end %>
+       </tbody>
+     </table>
+  </div>
+  <!-- /content -->
+
+</div>

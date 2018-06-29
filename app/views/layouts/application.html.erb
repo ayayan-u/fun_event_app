@@ -4,12 +4,26 @@
     <title>FunEventApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= stylesheet_link_tag    'jquery.mobile-1.4.5.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'common', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery-1.11.1.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery.mobile-1.4.5.min', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'common', 'data-turbolinks-track': 'reload' %>
+  </head>
   <body>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#score").parent().unwrap();
+        $("#name").parent().unwrap();
+        $.mobile.pageLoadErrorMessage = "ページが表示できません";
+        $.mobile.pageLoadErrorMessageTheme = "b";
+      });
+    </script>
     <%= yield %>
   </body>
 </html>

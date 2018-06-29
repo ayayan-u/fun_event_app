@@ -1,0 +1,23 @@
+<div id="page" data-role="page">
+
+  <!-- content -->
+  <div data-role="content">
+
+    <div style="text-align:center;padding-top:80px;">
+      <h1>Welcome!!</h1>
+    </div>
+    <%= form_for '/teams/members' do |f| %>
+      <input type="text" id="name" name="name" placeholder="Your Id" value="" style="height:50px" />
+
+      <div class="ui-grid-b" style="margin-top:25px;">
+        <div class="ui-block-a"><div class="ui-bar ui-bar-c" style="height:60px"></div></div>
+        <div class="ui-block-b"><div class="ui-bar ui-bar-c" style="height:60px">
+          <button class="ui-shadow ui-btn ui-corner-all" data-ajax=”false”>Go!!</button>
+        </div></div>
+        <div class="ui-block-c"><div class="ui-bar ui-bar-c" style="height:60px"></div></div>
+      </div>
+    <% end %>
+
+  </div>
+  <!-- /content -->
+</div>
